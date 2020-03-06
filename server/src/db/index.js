@@ -1,6 +1,8 @@
 "use strict";
 
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
+
 const camelcaseKeys = require("camelcase-keys");
 
 const pgp = require("pg-promise")({
@@ -65,4 +67,4 @@ const db = {
   queryReturningMany
 };
 
-module.exports = db;
+export default db;

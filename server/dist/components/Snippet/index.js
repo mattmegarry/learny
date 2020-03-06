@@ -1,14 +1,23 @@
 "use strict";
 
-var _send = require("../../utils/send");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 
-var express = require("express");
+var _express = _interopRequireDefault(require("express"));
 
-var snippetRouter = express.Router();
+var _send = _interopRequireDefault(require("../../utils/send"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const snippetRouter = _express.default.Router();
+
 snippetRouter.get("/", async (req, res, next) => {
   res.locals.data = {
     message: "you hit the snippet endpoint!"
   };
   next();
-}, _send.send);
-module.exports = snippetRouter;
+}, _send.default);
+var _default = snippetRouter;
+exports.default = _default;

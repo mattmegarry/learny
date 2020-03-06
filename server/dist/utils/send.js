@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.send = void 0;
+exports.default = void 0;
 
 const send = (req, res) => {
   const {
@@ -13,4 +13,5 @@ const send = (req, res) => {
   res.status(status || 200).json(data);
 };
 
-exports.send = send;
+var _default = send;
+exports.default = _default;

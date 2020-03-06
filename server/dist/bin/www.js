@@ -5,26 +5,32 @@
  */
 "use strict";
 
-var app = require("../app");
+var _app = _interopRequireDefault(require("../app"));
 
-var debug = require("debug")("server:server");
+var _debug = _interopRequireDefault(require("debug"));
 
-var http = require("http");
+var _http = _interopRequireDefault(require("http"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const debug = (0, _debug.default)("learny:server");
 /**
  * Get port from environment and store in Express.
  */
 
+const port = normalizePort(process.env.PORT || "4000");
 
-var port = normalizePort(process.env.PORT || "4000");
-app.set("port", port);
+_app.default.set("port", port);
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+
+const server = _http.default.createServer(_app.default);
 /**
  * Listen on provided port, on all network interfaces.
  */
+
 
 server.listen(port);
 server.on("error", onError);
@@ -34,7 +40,7 @@ server.on("listening", onListening);
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -58,7 +64,7 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === "string" ? "Pipe " + port : "Port " + port; // handle specific listen errors with friendly messages
+  const bind = typeof port === "string" ? "Pipe " + port : "Port " + port; // handle specific listen errors with friendly messages
 
   switch (error.code) {
     case "EACCES":

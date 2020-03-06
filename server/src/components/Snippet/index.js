@@ -1,9 +1,9 @@
 "use strict";
 
-var express = require("express");
-var snippetRouter = express.Router();
+import express from "express";
+const snippetRouter = express.Router();
 
-import { send } from "../../utils/send";
+import send from "../../utils/send";
 
 snippetRouter.get(
   "/",
@@ -14,4 +14,4 @@ snippetRouter.get(
   send
 );
 
-module.exports = snippetRouter;
+export default snippetRouter;

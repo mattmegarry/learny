@@ -1,9 +1,9 @@
 "use strict";
 
-var express = require("express");
-var userRouter = express.Router();
+import express from "express";
+const userRouter = express.Router();
 
-import { send } from "../../utils/send";
+import send from "../../utils/send";
 
 userRouter.get(
   "/",
@@ -14,4 +14,4 @@ userRouter.get(
   send
 );
 
-module.exports = userRouter;
+export default userRouter;

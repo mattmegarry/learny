@@ -1,22 +1,34 @@
 "use strict";
 
-var express = require("express");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 
-var path = require("path");
+var _dotenv = _interopRequireDefault(require("dotenv"));
 
-var cookieParser = require("cookie-parser");
+var _express = _interopRequireDefault(require("express"));
 
-var logger = require("morgan");
+var _path = _interopRequireDefault(require("path"));
 
-var apiRouter = require("./components/index");
+var _cookieParser = _interopRequireDefault(require("cookie-parser"));
 
-var app = express();
-app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({
+var _morgan = _interopRequireDefault(require("morgan"));
+
+var _index = _interopRequireDefault(require("./components/index"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_dotenv.default.config();
+
+const app = (0, _express.default)();
+app.use((0, _morgan.default)("dev"));
+app.use(_express.default.json());
+app.use(_express.default.urlencoded({
   extended: false
 }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-app.use("/", apiRouter);
-module.exports = app;
+app.use((0, _cookieParser.default)());
+app.use(_express.default.static(_path.default.join(__dirname, "public")));
+app.use("/", _index.default);
+var _default = app;
+exports.default = _default;
